@@ -11,9 +11,11 @@ function getPokemon() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`)
         .then(res => res.json()) //parse response into aa json
         .then(poke => {
-                //Add sprite to src
+                //Add sprite to src & alt
                 imageEl.src = poke.sprites.front_default
                 imageEl.alt = poke.name
+
+                // Fetch Pokemon Age
                 fetch(`https://api.agify.io/?name=${poke.name}`)
                 .then(res => res.json())
                 .then(age =>

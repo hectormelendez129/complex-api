@@ -13,7 +13,7 @@ function getPokemon() {
         .then(poke => {
                 //Add sprite to src
                 imageEl.src = poke.sprites.front_default
-            
+                imageEl.alt = poke.name
                 fetch(`https://api.agify.io/?name=${poke.name}`)
                 .then(res => res.json())
                 .then(age =>
